@@ -1,0 +1,12 @@
+
+#carouselContainer {
+    width: 240px;
+    float: right;
+    margin-right: 15px;
+}
+
+/*.carousel-indicators */
+.carousel-control-next,
+.carousel-control-prev {
+    filter: invert(100%);
+}
