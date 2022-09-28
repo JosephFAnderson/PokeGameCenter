@@ -8,10 +8,11 @@ var getPokemon = function(pokeName) {
     console.log(data);
     var pokeID = data.id;
     var name = data.name;
-    console.log(name);
+    var pokeHeight = data.height;
     var nameHeader = document.querySelector("#pokename");
-    console.log(nameHeader)
-    nameHeader.textContent = name;
+    var heightText = document.querySelector("#height")
+    nameHeader.textContent = name + " #" + pokeID;
+    heightText.textContent = pokeHeight
     var idSearch = "https://pokeapi.co/api/v2/pokemon-species/" + pokeID + "/"
     fetch(idSearch)
   .then(function (response) {
