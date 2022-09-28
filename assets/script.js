@@ -1,5 +1,5 @@
 var getPokemon = function(pokeName) {
-  var poke = "pikachu".toLowerCase();
+  var poke = pokeName.toLowerCase()
   fetch("https://pokeapi.co/api/v2/pokemon/" + poke + "/")
   .then(function (response) {
     return response.json();
@@ -26,6 +26,7 @@ var getPokemon = function(pokeName) {
       typeLi.textContent = data.types[i].type.name
       typesText.appendChild(typeLi)
     };
+    document.getElementById("pokeImg").src = pokeImage;
     var idSearch = "https://pokeapi.co/api/v2/pokemon-species/" + pokeID + "/"
     fetch(idSearch)
   .then(function (response) {
@@ -41,7 +42,7 @@ var getPokemon = function(pokeName) {
   });
 }
 
-getPokemon()
+
 var searchButton = document.getElementById("searchButton");
 
 searchButton.addEventListener("click", searchPoke);
