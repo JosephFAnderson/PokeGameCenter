@@ -27,3 +27,16 @@ var getPokemon = function(pokeName) {
   });
   });
 }
+
+var searchButton = document.getElementById("searchButton");
+
+searchButton.addEventListener("click", searchPoke);
+
+function searchPoke(event){
+    event.preventDefault();
+    var initialSearch = document.getElementById("searcher");
+    var pokeName = initialSearch.value;
+    initialSearch.value = "";
+    getPokemon(pokeName);
+}
+
