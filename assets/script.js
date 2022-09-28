@@ -21,11 +21,11 @@ var getPokemon = function(pokeName) {
     var pokeImage = data.sprites.front_default
     console.log(typesText.textContent)
     nameHeader.textContent = name + " #" + pokeID;
-    heightText.textContent = pokeHeight1 + " feet";
-    weightText.textContent = pokeWeight1 + " lbs";
-    if(typesText.textContent != ""){
-      typesText.textContent = ""
-    }
+    heightText.textContent = "Height: " + pokeHeight1 + " feet";
+    weightText.textContent = "Weight: " + pokeWeight1 + " lbs";
+    // if(typesText.textContent != ""){
+    //   typesText.textContent = ""
+    // }
     for(var i = 0; i < poketype.length; i++){
       var typeLi = document.createElement("li")
       typeLi.textContent = data.types[i].type.name
