@@ -1,5 +1,5 @@
 var getPokemon = function(pokeName) {
-  var poke = "Pikachu".toLowerCase();
+  var poke = "pikachu".toLowerCase();
   fetch("https://pokeapi.co/api/v2/pokemon/" + poke + "/")
   .then(function (response) {
     return response.json();
@@ -9,10 +9,13 @@ var getPokemon = function(pokeName) {
     var pokeID = data.id;
     var name = data.name;
     var pokeHeight = data.height;
+    var pokeWeight = data.weight/4.53846154;
     var nameHeader = document.querySelector("#pokename");
     var heightText = document.querySelector("#height")
+    var weightText = document.querySelector("#weight")
     nameHeader.textContent = name + " #" + pokeID;
-    heightText.textContent = pokeHeight
+    heightText.textContent = pokeHeight;
+    weightText.textContent = pokeWeight;
     var idSearch = "https://pokeapi.co/api/v2/pokemon-species/" + pokeID + "/"
     fetch(idSearch)
   .then(function (response) {
@@ -28,4 +31,4 @@ var getPokemon = function(pokeName) {
   });
 }
 
-getPokemon()
+getPokemon();
