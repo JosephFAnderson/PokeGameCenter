@@ -1,21 +1,29 @@
-function getTCG(pokeName) {
-    var options = {
-	method: 'GET',
-	headers: {
-		'X-API-Key': '2d0d487d-d62c-4cbd-a2a0-fe8c74e6ce13'
-	}
-    };
-
-    fetch('https://api.pokemontcg.io/v2/cards?q=name:' + pokeName, options)
-	    .then(function (response) {
-            return response.json()
-        } )
-	    .then(function (data) {
-            console.log(data.data)
-            pokeImg = data.data
-            console.log(pokeImg[0].images.small);
-
-            //Add images somewhere
-        }) 
-	    .catch(err => console.error(err));
+var getPokemon = function(pokeName) {
+  var poke = "Pikachu".toLowerCase();
+  fetch("https://pokeapi.co/api/v2/pokemon/" + poke)
+  .then(function (response) {
+    return response.json();
+  })
+  .then(function (data) {
+    console.log(data);
+    var pokeID = data.id;
+    var name = data.name;
+    var pokeHeight = data.height;
+    var nameHeader = document.querySelector("#pokename");
+    var heightText = document.querySelector("#height")
+    nameHeader.textContent = name + " #" + pokeID;
+    heightText.textContent = pokeHeight
+    var idSearch = "https://pokeapi.co/api/v2/pokemon-species/" + pokeID
+    fetch(idSearch)
+  .then(function (response) {
+    return response.json();
+  })
+  .then(function (data) {
+    console.log(data);
+    var pokeEntry = data.flavor_text_entries[0].flavor_text;
+    console.log(pokeEntry)
+    var dexEntry = document.querySelector("#pokeentry")
+    dexEntry.textContent = pokeEntry
+  });
+  });
 }
