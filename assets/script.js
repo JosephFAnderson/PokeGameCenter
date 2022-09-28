@@ -60,7 +60,9 @@ function getTCG(pokeName) {
             // Create Array containing the img objects
             var pokeImg = data.data
             var carouselList = document.querySelector('.carousel-indicators');
-            var innerCarousel = document.querySelector('.carousel-inner');           
+            carouselList.replaceChildren();
+            var innerCarousel = document.querySelector('.carousel-inner');    
+            innerCarousel.replaceChildren();       
 
             // Iterate through the array. Creating carousel elements and adding iamges to them
             for(var i = 0; i < pokeImg.length; i++) {               
