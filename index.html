@@ -26,21 +26,55 @@
         </div>
     </section>
     <section>
-        <article>
-            <!-- pokemon search basic info here (sprite, para, buttons) -->
-            <button id="tcg"></button>
-            <button id="vgc"></button>
-            <button id="cards"></button>
-            <!-- card images in a fresh section -->
-        </article>
-    </section>
+      <article>
+          <!-- pokemon search basic info here (sprite, para, buttons) -->
+          
+          <button id="vgc"></button>
+          <button id="cards"></button>
+          <!-- card images in a fresh section -->
+          <section id="carouselContainer" class="d-flex flex-column">   
+            <button id="imgGallery" class="justify-self-center" type='button' data-toggle='modal' data-target="#exampleModal">View all images</button>           
+            <div id="carouselExampleIndicators" class="carousel slide" data-interval="0" data-ride="carousel">
+              <ol class="carousel-indicators">  
+              <!-- List elements to help navigate carousel populate here -->
+              </ol>
+              <div class="carousel-inner">
+              <!-- Card images populate here -->
+              </div>
+              <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+              </a>
+              <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+              </a>
+            </div>
+            
+            <div class="modal fade modal-lg" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              
+                <div class="modal-content">                  
+                  <div class="modal-body">
+                    
+                  </div>           
+                  
+                </div>
+              
+            </div>
+
+          </section>
+      </article>
+  </section>
     <section id = "pokedex">
-       <img src=""/>
+       <img id="pokeImg" src=""/>
        <h2 id="pokename"></h2>
-       <p id="pokeentry"></p>
+       <div id="pokeentry"></div>
        <p id="height"></p>
        <p id="weight"></p>
+       <ul id="types"></ul>
     </section>
 </body>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
 <script src="./assets/script.js"></script>
 </html>
