@@ -137,28 +137,28 @@ function getTCG(pokeName) {
 var vgc = document.querySelector("#vgc");
 
 vgc.addEventListener("click", function(pokemonVGC) {
-  fetch("https://pokeapi.co/api/v2/pokemon/eevee/") 
+  fetch("https://pokeapi.co/api/v2/pokemon/" + pokeName) 
     .then(function(response){
       return response.json();
     })
     .then(function(data){
-      console.log(data);
       var versions = data.game_indices;
       console.log(versions);
       var gamesIn = document.querySelector("#catchEmIn");
+      gamesIn.replaceChildren();
       for (var i = 0; i < versions.length; i++){
         var inGames = document.createElement("li")
         inGames.textContent = versions[i].version.name;
         gamesIn.append(inGames)
       }
       var moveKit = data.moves;
-      var pokeMoves = document.querySelector("#vidGameInfo");
+      var pokeMoves = document.querySelector("#gameMoves");
+      pokeMoves.replaceChildren();
       for (var i = 0; i < moveKit.length; i++){
         var moveLi = document.createElement("li")
         moveLi.textContent = moveKit[i].move.name;
         pokeMoves.append(moveLi)
       }
-      console.log();
     })
 });
 
