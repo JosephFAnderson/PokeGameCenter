@@ -102,23 +102,26 @@ function getTCG(pokeName) {
 
                 var modalImg = document.createElement('img');
                 var img = document.createElement('img');
+                var price = document.createElement('p');
                 
-                var imgUrl = pokeImg[i].images.small;
+
+                // Uncomment lines 103-131 to error handle backward cards
+                // var imgUrl = pokeImg[i].images.small;
                
                 //Check if img url returns 404 error              
-                function urlExists(url) {
-                  var http = new XMLHttpRequest();
-                  http.open('HEAD', url, false);
-                  http.send();
-                  if (http.status != 404) {
-                    addImg = true;
-                  } 
-                }                   
+                // function urlExists(url) {
+                //   var http = new XMLHttpRequest();
+                //   http.open('HEAD', url, false);
+                //   http.send();
+                //   if (http.status != 404) {
+                //     addImg = true;
+                //   } 
+                // }                   
 
-                urlExists(imgUrl);
+                // urlExists(imgUrl);
 
                 // If no error message detected then add image to html
-                if (addImg){
+                // if (addImg){
                   modalImg.setAttribute('src', pokeImg[i].images.small);
                   modalImg.classList.add('p-1');
                   modalImg.classList.add('modImg');
@@ -131,7 +134,7 @@ function getTCG(pokeName) {
                   modalBod.appendChild(modalImg);
                   singleCarDiv.appendChild(img);               
                   innerCarousel.appendChild(singleCarDiv);                
-                }                                 
+                // }                                 
             }
         })
 }
@@ -156,14 +159,6 @@ vgc.addEventListener("click", function(pokemonVGC) {
         vidGame.append(moveLi)
       }
     })
-  // fetch("https://pokeapi.co/api/v2/pokemon-habitat/" + poke + "/")
-  //   .then(function(response){
-  //     return response.json();
-  //   })
-  //   .then(function(data){
-  //     console.log(data);
-  //     var 
-  //   })
 });
 
 var searchButton = document.getElementById("searchButton");
