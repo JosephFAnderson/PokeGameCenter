@@ -1,51 +1,54 @@
+var versions; 
+var moveKit;
+var pokeType;
 var getPokemon = function(pokeName) {
-  var poke = pokeName.toLowerCase()
-  fetch("https://pokeapi.co/api/v2/pokemon/" + poke + "/")
-  .then(function (response) {
-    return response.json();
+  fetch("https://pokeapi.co/api/v2/pokemon/" + pokeName + "/")
+    .then(function (response) {
+      return response.json();
   })
-  .then(function (data) {
-    console.log(data);
-
-    var pokeID = data.id;
-    var name = data.name;
-    var pokeHeight = (data.height*.328084);
-    var pokeHeight1 = Math.round(pokeHeight * 10)/10
-    var pokeWeight =data.weight*.220462;
-    var pokeWeight1 = Math.round(pokeWeight * 10)/10;
-    var nameHeader = document.querySelector("#pokename");
-    var heightText = document.querySelector("#height");
-    var weightText = document.querySelector("#weight");
-    var typesText = document.querySelector("#types")
-    var poketype = data.types
-    var pokeImage = data.sprites.front_default
-    console.log(typesText.textContent)
-    nameHeader.textContent = name + " #" + pokeID;
-    heightText.textContent = pokeHeight1 + " feet";
-    weightText.textContent = pokeWeight1 + " lbs";
-    if(typesText.textContent != ""){
-      typesText.textContent = ""
+    .then(function (data) {
+      versions = data.game_indices;
+      moveKit = data.moves;
+      var pokeID = data.id;
+      var pokeHeight = (data.height*.328084);
+      var pokeHeightRounded = Math.round(pokeHeight * 10)/10
+      var pokeWeight =data.weight*.220462;
+      var pokeWeightRounded = Math.round(pokeWeight * 10)/10;
+      var nameHeader = document.querySelector("#pokename");
+      var heightText = document.querySelector("#height");
+      var weightText = document.querySelector("#weight");
+      var typesText = document.querySelector("#types")
+      pokeType = data.types
+      var pokeImage = data.sprites.front_default
+      nameHeader.textContent = pokeName + " #" + pokeID;
+      heightText.textContent = "Height: " + pokeHeightRounded + " feet";
+      weightText.textContent = "Weight: " + pokeWeightRounded + " lbs";
+      if(typesText.textContent != ""){
+        typesText.textContent = ""
     }
-    for(var i = 0; i < poketype.length; i++){
-      var typeLi = document.createElement("li")
-      typeLi.textContent = data.types[i].type.name
-      typesText.appendChild(typeLi)
+      for(var i = 0; i < pokeType.length; i++){
+        var typeLi = document.createElement("li")
+        typeLi.textContent = data.types[i].type.name
+        typesText.appendChild(typeLi)
     };
-    document.getElementById("pokeImg").src = pokeImage;
-    var idSearch = "https://pokeapi.co/api/v2/pokemon-species/" + pokeID + "/"
-    fetch(idSearch)
-  .then(function (response) {
-    return response.json();
+      document.getElementById("pokeImg").src = pokeImage;
+      var idSearch = "https://pokeapi.co/api/v2/pokemon-species/" + pokeID + "/"
+      fetch(idSearch)
+        .then(function (response) {
+          return response.json();
   })
-  .then(function (data) {
-    console.log(data);
-    var pokeEntry = data.flavor_text_entries[0].flavor_text;
-    console.log(pokeEntry)
-    var dexEntry = document.querySelector("#pokeentry")
-    dexEntry.textContent = pokeEntry
-  });
+        .then(function (data) {
+         
+          var dexEntry = document.querySelector("#pokeentry")
+          for(var i = 0; i < data.flavor_text_entries.length; i++){
+            if(data.flavor_text_entries[i].language.name === "en"){
+              var pokeEntry = data.flavor_text_entries[i].flavor_text;
+              dexEntry.textContent = pokeEntry};
+  }});
   });
 }
+
+
 
 // Take in the users pokemon name and fetch the TCG cards for that pokemon
 function getTCG(pokeName) {
