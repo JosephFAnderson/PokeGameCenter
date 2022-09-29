@@ -132,6 +132,8 @@ var searchButton = document.getElementById("searchButton");
 
 searchButton.addEventListener("click", searchPoke);
 
+<<<<<<< HEAD
+=======
 function searchPoke(event){
     event.preventDefault();
     var initialSearch = document.getElementById("searcher");
@@ -140,4 +142,5 @@ function searchPoke(event){
     getPokemon(pokeName);
     getTCG(pokeName);
 }
+>>>>>>> 5c81f5e883777518d19b1b6b5c646407d743353e
 
