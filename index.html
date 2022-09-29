@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head  >
+<head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge"> 
@@ -11,18 +11,20 @@
 </head>
 <body class="bg-danger">
     <header class="row w-100 m-0 d-flex justify-content-between bg-primary">
-        <div class="col-4">
-          Fav Goes HERE!
-        </div>        
-        <nav class="col-4">            
-            <form >
+      <div class="col-4">
+        Fav Goes HERE!
+      </div>        
+      <nav class="col-4">            
+        <form autocomplete="off">
+          <div class="autocomplete">
             <input id ="searcher" type="text" placeholder="Search a Pokemon" value= "">
+          </div>            
             <button id="searchButton" type = "submit" value="submit"> Search </button>
-          </form>     
-        </nav>
-        <div class="col-4">
-            <img src="" alt="Logo goes here" />
-        </div>
+        </form>     
+      </nav>
+      <div class="col-4">
+          <img src="/assets/weblogo.png" id="logo" alt="Logo goes here" />
+      </div>
     </header>
     <main class="d-flex ">
       <section>
