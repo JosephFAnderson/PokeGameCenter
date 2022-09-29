@@ -3,10 +3,14 @@ header{
     height: 50px;
 }
 
+main{
+    height: 100vh;
+}
+
 
 #carouselContainer {
     width: 240px;
-    float: right;
+    align-self: center;
     margin-right: 15px;
 }
 
@@ -31,7 +35,8 @@ header{
 #pokedex {
     width: 40%; 
     border:10px inset rgb(36, 35, 35);
-    margin: 0px 25%;
+    margin: 10%;
+    align-self: center;
  }
  
  #pokeImg {
