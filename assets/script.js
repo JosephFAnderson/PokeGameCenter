@@ -21,11 +21,13 @@ var getPokemon = function(pokeName) {
       var heightText = document.querySelector("#height");
       var weightText = document.querySelector("#weight");
       var typesText = document.querySelector("#types")
+      var typesHeader = document.querySelector("#typestext")
       pokeType = data.types
       var pokeImage = data.sprites.front_default
       nameHeader.textContent = pokeName + " #" + pokeID;
       heightText.textContent = "Height: " + pokeHeightRounded + " feet";
       weightText.textContent = "Weight: " + pokeWeightRounded + " lbs";
+      typesHeader.textContent = "Types:"
       if(typesText.textContent != ""){
         typesText.textContent = ""
     }
@@ -41,7 +43,7 @@ var getPokemon = function(pokeName) {
           return response.json();
   })
         .then(function (data) {
-         
+         console.log(data)
           var dexEntry = document.querySelector("#pokeentry")
           for(var i = 0; i < data.flavor_text_entries.length; i++){
             if(data.flavor_text_entries[i].language.name === "en"){
@@ -130,6 +132,48 @@ function getTCG(pokeName) {
         })
 }
 
+// Show Pokemon video game info not already displayed in defualt search
+
+var vgc = document.querySelector("#vgc");
+
+vgc.addEventListener("click", function(pokemonVGC) {
+  fetch("https://pokeapi.co/api/v2/pokemon/" + poke + "/") 
+    .then(function(response){
+      return response.json();
+    })
+    .then(function(data){
+      console.log(data);
+      var pokeType = data.type;
+      var moveKit = data.moves;
+      var vidGame = document.querySelector("#vidGameInfo");
+      for (var i = 0; i < moveKit.length; i++){
+        var moveLi = document.createElement("li")
+        moveLi.textContent = moveKit[i].move.name;
+        vidGame.append(moveLi)
+      }
+    })
+  // fetch("https://pokeapi.co/api/v2/pokemon-habitat/" + poke + "/")
+  //   .then(function(response){
+  //     return response.json();
+  //   })
+  //   .then(function(data){
+  //     console.log(data);
+  //     var 
+  //   })
+});
+
+var searchButton = document.getElementById("searchButton");
+
+searchButton.addEventListener("click", searchPoke);
+
+function searchPoke(event){
+    event.preventDefault();
+    var initialSearch = document.getElementById("searcher");
+    pokeName = initialSearch.value;
+    initialSearch.value = "";
+    getPokemon(pokeName);
+    getTCG(pokeName);
+}
 
 // add to favorites button & local storage
 var addFavorites = document.createElement("h4");
@@ -145,18 +189,3 @@ favStuff.appendChild(addFavorites);
 
 
 // search function content
-var searchButton = document.getElementById("searchButton");
-
-searchButton.addEventListener("click", searchPoke);
-
-
-function searchPoke(event){
-    event.preventDefault();
-    var initialSearch = document.getElementById("searcher");
-    pokeName = initialSearch.value;
-    initialSearch.value = "";
-    getPokemon(pokeName);
-    getTCG(pokeName);
-}
-
-
