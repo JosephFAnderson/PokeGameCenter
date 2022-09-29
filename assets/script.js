@@ -171,4 +171,3 @@ function searchPoke(event){
     getTCG(pokeName);
 }
 
-
