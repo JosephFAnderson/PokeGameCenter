@@ -1,3 +1,6 @@
+var versions; 
+var moveKit;
+var pokeType;
 var getPokemon = function(pokeName) {
   var poke = pokeName.toLowerCase()
   fetch("https://pokeapi.co/api/v2/pokemon/" + poke + "/")
@@ -5,26 +8,27 @@ var getPokemon = function(pokeName) {
     return response.json();
   })
   .then(function (data) {
-
+    versions = data.game_indices;
+    moveKit = data.moves;
     var pokeID = data.id;
     var name = data.name;
     var pokeHeight = (data.height*.328084);
-    var pokeHeight1 = Math.round(pokeHeight * 10)/10
+    var pokeHeightRounded = Math.round(pokeHeight * 10)/10
     var pokeWeight =data.weight*.220462;
-    var pokeWeight1 = Math.round(pokeWeight * 10)/10;
+    var pokeWeightRounded = Math.round(pokeWeight * 10)/10;
     var nameHeader = document.querySelector("#pokename");
     var heightText = document.querySelector("#height");
     var weightText = document.querySelector("#weight");
     var typesText = document.querySelector("#types")
-    var poketype = data.types
+    pokeType = data.types
     var pokeImage = data.sprites.front_default
     nameHeader.textContent = name + " #" + pokeID;
-    heightText.textContent = "Height: " + pokeHeight1 + " feet";
-    weightText.textContent = "Weight: " + pokeWeight1 + " lbs";
+    heightText.textContent = "Height: " + pokeHeightRounded + " feet";
+    weightText.textContent = "Weight: " + pokeWeightRounded + " lbs";
     if(typesText.textContent != ""){
       typesText.textContent = ""
     }
-    for(var i = 0; i < poketype.length; i++){
+    for(var i = 0; i < pokeType.length; i++){
       var typeLi = document.createElement("li")
       typeLi.textContent = data.types[i].type.name
       typesText.appendChild(typeLi)
@@ -43,6 +47,8 @@ var getPokemon = function(pokeName) {
   });
   });
 }
+
+
 
 // Take in the users pokemon name and fetch the TCG cards for that pokemon
 function getTCG(pokeName) {
