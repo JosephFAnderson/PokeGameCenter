@@ -1,6 +1,12 @@
 var versions; 
 var moveKit;
 var pokeType;
+var pokeName;
+var favoritedArray = JSON.parse(localStorage.getItem("favorited poke")) || [];
+
+
+
+
 
 var getPokemon = function(pokeName) {
   fetch("https://pokeapi.co/api/v2/pokemon/" + pokeName + "/")
@@ -168,9 +174,23 @@ searchButton.addEventListener("click", searchPoke);
 function searchPoke(event){
     event.preventDefault();
     var initialSearch = document.getElementById("searcher");
-    var pokeName = initialSearch.value;
+    pokeName = initialSearch.value;
     initialSearch.value = "";
     getPokemon(pokeName);
     getTCG(pokeName);
 }
 
+// add to favorites button & local storage
+var addFavorites = document.createElement("h4");
+addFavorites.textContent = "Add to Favorites";
+addFavorites.addEventListener("click", getThoseFavs);
+function getThoseFavs(){
+  console.log("your favs are saved! :) ");
+  favoritedArray.push(pokeName);
+  localStorage.setItem("favorited poke", JSON.stringify(favoritedArray));
+}
+var favStuff = document.getElementById("fav-sec");
+favStuff.appendChild(addFavorites);
+
+
+// search function content
