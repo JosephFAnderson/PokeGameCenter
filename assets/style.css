@@ -10,3 +10,15 @@
 .carousel-control-prev {
     filter: invert(100%);
 }
+
+.modGallery{
+    left: 15%;
+}
+
+.modal-dialog{
+    margin-top: 0px;
+}
+
+.modImg{
+    width: 240px;
+}
