@@ -128,6 +128,36 @@ function getTCG(pokeName) {
         })
 }
 
+// Show Pokemon video game info not already displayed in defualt search
+
+var vgc = document.querySelector("#vgc");
+
+vgc.addEventListener("click", function(pokemonVGC) {
+  fetch("https://pokeapi.co/api/v2/pokemon/" + poke + "/") 
+    .then(function(response){
+      return response.json();
+    })
+    .then(function(data){
+      console.log(data);
+      var pokeType = data.type;
+      var moveKit = data.moves;
+      var vidGame = document.querySelector("#vidGameInfo");
+      for (var i = 0; i < moveKit.length; i++){
+        var moveLi = document.createElement("li")
+        moveLi.textContent = moveKit[i].move.name;
+        vidGame.append(moveLi)
+      }
+    })
+  // fetch("https://pokeapi.co/api/v2/pokemon-habitat/" + poke + "/")
+  //   .then(function(response){
+  //     return response.json();
+  //   })
+  //   .then(function(data){
+  //     console.log(data);
+  //     var 
+  //   })
+});
+
 var searchButton = document.getElementById("searchButton");
 
 searchButton.addEventListener("click", searchPoke);
