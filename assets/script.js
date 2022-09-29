@@ -145,19 +145,29 @@ function getTCG(pokeName) {
 var vgc = document.querySelector("#vgc");
 
 vgc.addEventListener("click", function(pokemonVGC) {
-  fetch("https://pokeapi.co/api/v2/pokemon/" + poke + "/") 
+  fetch("https://pokeapi.co/api/v2/pokemon/" + pokeName) 
     .then(function(response){
       return response.json();
     })
     .then(function(data){
-      console.log(data);
-      var pokeType = data.type;
+      var versions = data.game_indices;
+      console.log(versions);
+      var gamesIn = document.querySelector("#catchEmIn");
+      gamesIn.replaceChildren();
+      gamesIn.setAttribute("style", "display: block")
+      for (var i = 0; i < versions.length; i++){
+        var inGames = document.createElement("li")
+        inGames.textContent = versions[i].version.name;
+        gamesIn.append(inGames)
+      }
       var moveKit = data.moves;
-      var vidGame = document.querySelector("#vidGameInfo");
+      var pokeMoves = document.querySelector("#gameMoves");
+      pokeMoves.replaceChildren();
+      pokeMoves.setAttribute("style", "display: block")
       for (var i = 0; i < moveKit.length; i++){
         var moveLi = document.createElement("li")
         moveLi.textContent = moveKit[i].move.name;
-        vidGame.append(moveLi)
+        pokeMoves.append(moveLi)
       }
     })
 });
@@ -173,6 +183,7 @@ function searchPoke(event){
     initialSearch.value = "";
     getPokemon(pokeName);
     getTCG(pokeName);
+    vgc.setAttribute("style", "display: block")
 }
 
 // add to favorites button & local storage

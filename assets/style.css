@@ -9,9 +9,9 @@ main{
 
 
 #carouselContainer {
-    width: 240px;
-    align-self: center;
+    width: 240px;    
     margin-right: 15px;
+    align-self: center;
 }
 
 /*.carousel-indicators */
@@ -41,4 +41,21 @@ main{
  
  #pokeImg {
      width: 20%;
+ }
+
+
+ /* VGC info scroll boxes */
+.pokemonGoToThePolls {
+    width: 250px;
+    height: 250px;
+    background-color: gray;
+    border: 10px inset rgb(36, 35, 35);
+    margin: 1%;
+    overflow: auto;
+    align-self: center;
+    display: none;
+ }
+
+ #vgc {
+    display: none;
  }
