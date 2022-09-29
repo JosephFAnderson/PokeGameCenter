@@ -141,14 +141,16 @@ function getTCG(pokeName) {
 
 // Show Pokemon video game info not already displayed in defualt search
 
-var vgc = document.querySelector("#vgc");
+var vgc = document.getElementById("vgc");
 
 vgc.addEventListener("click", function(pokemonVGC) {
+  alert("hello");
   fetch("https://pokeapi.co/api/v2/pokemon/" + pokeName) 
     .then(function(response){
       return response.json();
     })
     .then(function(data){
+      console.log();
       var versions = data.game_indices;
       console.log(versions);
       var gamesIn = document.querySelector("#catchEmIn");
