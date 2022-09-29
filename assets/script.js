@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 var versions; 
 var moveKit;
 var pokeType;
@@ -100,11 +98,40 @@ function getTCG(pokeName) {
         })
 }
 
+// Show Pokemon video game info not already displayed in defualt search
+
+var vgc = document.querySelector("#vgc");
+
+vgc.addEventListener("click", function(pokemonVGC) {
+  fetch("https://pokeapi.co/api/v2/pokemon/" + poke + "/") 
+    .then(function(response){
+      return response.json();
+    })
+    .then(function(data){
+      console.log(data);
+      var pokeType = data.type;
+      var moveKit = data.moves;
+      var vidGame = document.querySelector("#vidGameInfo");
+      for (var i = 0; i < moveKit.length; i++){
+        var moveLi = document.createElement("li")
+        moveLi.textContent = moveKit[i].move.name;
+        vidGame.append(moveLi)
+      }
+    })
+  // fetch("https://pokeapi.co/api/v2/pokemon-habitat/" + poke + "/")
+  //   .then(function(response){
+  //     return response.json();
+  //   })
+  //   .then(function(data){
+  //     console.log(data);
+  //     var 
+  //   })
+});
+
 var searchButton = document.getElementById("searchButton");
 
 searchButton.addEventListener("click", searchPoke);
 
->>>>>>> 5ba2c1f05ddbf0692e57e052e5ccfe10e117eb5a
 function searchPoke(event){
     event.preventDefault();
     var initialSearch = document.getElementById("searcher");
@@ -112,31 +139,5 @@ function searchPoke(event){
     initialSearch.value = "";
     getPokemon(pokeName);
 }
-<<<<<<< HEAD
-var pokemonVGC = function(gameInfo) {
-    var game = "Console Games"();
-    fetch("https://pokeapi.co/api/v2/version-group/" + name + "/")
-    .then(function(response) {
-        return response.json();
-    })
-    .then(function(data) {
-      var gameNames = data.version_groups;
-      fetch("https://pokeapi.co/api/v2/move-target/" + name + "/")  
-      .then (this(response.json();))
-      var pokeType = function(getType) {
-        fetch("https://pokeapi.co/api/v2/type/" + name + "/")
-      .then(this(response.json();))
-      };
-      var betterThan = function(superEffective) {
-        fetch("https://pokeapi.co/api/v2/type/" + name + "/")
-        .then (this(response.json){double_damage_to};))
-      };
-      var weakerThan = function(callNurseJoy) {
-        fetch("https://pokeapi.co/api/v2/type/" + name + "/")
-        .then (this(response.json){double_damage_from};))
-      };
 
-vgc.onclick = function(gameInfo);
-=======
 
->>>>>>> 5ba2c1f05ddbf0692e57e052e5ccfe10e117eb5a
