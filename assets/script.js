@@ -135,13 +135,11 @@ function getTCG(pokeName) {
 var vgc = document.querySelector("#vgc");
 
 vgc.addEventListener("click", function(pokemonVGC) {
-  fetch("https://pokeapi.co/api/v2/pokemon/" + poke + "/") 
+  fetch("https://pokeapi.co/api/v2/pokemon/eevee/") 
     .then(function(response){
       return response.json();
     })
     .then(function(data){
-      // var pokeType = data.type;
-      // var whatsMyType = document.querySelector("");
       var versions = data.game_indices.name;
       var gamesIn = document.querySelector("#catchEmIn");
       for (var i = 0; i < versions.length; i++){
@@ -158,14 +156,6 @@ vgc.addEventListener("click", function(pokemonVGC) {
       }
       
     })
-  // fetch("https://pokeapi.co/api/v2/pokemon-habitat/" + poke + "/")
-  //   .then(function(response){
-  //     return response.json();
-  //   })
-  //   .then(function(data){
-  //     console.log(data);
-  //     var 
-  //   })
 });
 
 var searchButton = document.getElementById("searchButton");
