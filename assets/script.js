@@ -172,7 +172,7 @@ function searchPoke(event){
     pokeName = initialSearch.value;
     initialSearch.value = "";
     getPokemon(pokeName);
-    // getTCG(pokeName);
+    getTCG(pokeName);
 }
 
 // add to favorites button & local storage

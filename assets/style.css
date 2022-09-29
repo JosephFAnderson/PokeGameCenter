@@ -32,3 +32,13 @@
  #pokeImg {
      width: 20%;
  }
+
+ /* VGC info scroll boxes */
+ .pokemonGoToThePolls {
+    width: 250px;
+    height: 250px;
+    border: 10px inset rgb(36, 35, 35);
+    margin: 1%;
+    overflow: auto;
+    position: relative;
+ }
