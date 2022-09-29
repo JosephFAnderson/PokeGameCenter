@@ -142,11 +142,13 @@ vgc.addEventListener("click", function(pokemonVGC) {
       return response.json();
     })
     .then(function(data){
-      var versions = data.game_indices.name;
+      console.log(data);
+      var versions = data.game_indices;
+      console.log(versions);
       var gamesIn = document.querySelector("#catchEmIn");
       for (var i = 0; i < versions.length; i++){
-        var inGames = document.createElement("p")
-        inGames.textContent = gamesIn[i].game_indices.name;
+        var inGames = document.createElement("li")
+        inGames.textContent = versions[i].version.name;
         gamesIn.append(inGames)
       }
       var moveKit = data.moves;
@@ -156,7 +158,7 @@ vgc.addEventListener("click", function(pokemonVGC) {
         moveLi.textContent = moveKit[i].move.name;
         pokeMoves.append(moveLi)
       }
-      
+      console.log();
     })
 });
 
@@ -170,7 +172,7 @@ function searchPoke(event){
     pokeName = initialSearch.value;
     initialSearch.value = "";
     getPokemon(pokeName);
-    getTCG(pokeName);
+    // getTCG(pokeName);
 }
 
 // add to favorites button & local storage
