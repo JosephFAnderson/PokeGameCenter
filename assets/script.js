@@ -2,7 +2,11 @@ var versions;
 var moveKit;
 var pokeType;
 var pokeName;
-var favoritedArray = [];
+var favoritedArray = JSON.parse(localStorage.getItem("favorited poke")) || [];
+
+
+
+
 
 var getPokemon = function(pokeName) {
   fetch("https://pokeapi.co/api/v2/pokemon/" + pokeName + "/")
