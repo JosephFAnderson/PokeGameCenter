@@ -2,7 +2,11 @@ var versions;
 var moveKit;
 var pokeType;
 var pokeName;
-var favoritedArray = [];
+var favoritedArray = JSON.parse(localStorage.getItem("favorited poke")) || [];
+
+
+
+
 
 var getPokemon = function(pokeName) {
   fetch("https://pokeapi.co/api/v2/pokemon/" + pokeName + "/")
@@ -98,23 +102,26 @@ function getTCG(pokeName) {
 
                 var modalImg = document.createElement('img');
                 var img = document.createElement('img');
+                var price = document.createElement('p');
                 
-                var imgUrl = pokeImg[i].images.small;
+
+                // Uncomment lines 103-131 to error handle backward cards
+                // var imgUrl = pokeImg[i].images.small;
                
                 //Check if img url returns 404 error              
-                function urlExists(url) {
-                  var http = new XMLHttpRequest();
-                  http.open('HEAD', url, false);
-                  http.send();
-                  if (http.status != 404) {
-                    addImg = true;
-                  } 
-                }                   
+                // function urlExists(url) {
+                //   var http = new XMLHttpRequest();
+                //   http.open('HEAD', url, false);
+                //   http.send();
+                //   if (http.status != 404) {
+                //     addImg = true;
+                //   } 
+                // }                   
 
-                urlExists(imgUrl);
+                // urlExists(imgUrl);
 
                 // If no error message detected then add image to html
-                if (addImg){
+                // if (addImg){
                   modalImg.setAttribute('src', pokeImg[i].images.small);
                   modalImg.classList.add('p-1');
                   modalImg.classList.add('modImg');
@@ -127,7 +134,7 @@ function getTCG(pokeName) {
                   modalBod.appendChild(modalImg);
                   singleCarDiv.appendChild(img);               
                   innerCarousel.appendChild(singleCarDiv);                
-                }                                 
+                // }                                 
             }
         })
 }
