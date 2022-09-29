@@ -74,7 +74,7 @@ function getTCG(pokeName) {
             var innerCarousel = document.querySelector('.carousel-inner');    
             innerCarousel.replaceChildren();                
             var modalBod = document.querySelector('.modal-body');
-            // modalBod.replaceChildren();
+            modalBod.replaceChildren();
            
             // Iterate through the array. Creating carousel elements and adding images to them
             for(var i = 0; i < pokeImg.length; i++) {     
