@@ -144,7 +144,6 @@ var favStuff = document.getElementById("fav-sec");
 favStuff.appendChild(addFavorites);
 
 
-
 // search function content
 var searchButton = document.getElementById("searchButton");
 
