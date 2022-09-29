@@ -3,6 +3,10 @@ header{
     height: 50px;
 }
 
+#logo {
+    height: 40%;
+    width: 40%;
+}
 
 #carouselContainer {
     width: 240px;    
@@ -50,6 +54,8 @@ header{
     display: none;
  }
 
+/* Vid Game button */
  #vgc {
     display: none;
  }
+
