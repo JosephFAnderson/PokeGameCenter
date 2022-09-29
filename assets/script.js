@@ -8,6 +8,7 @@ var getPokemon = function(pokeName) {
     return response.json();
   })
   .then(function (data) {
+
     versions = data.game_indices;
     moveKit = data.moves;
     var pokeID = data.id;
@@ -40,11 +41,13 @@ var getPokemon = function(pokeName) {
         return response.json();
   })
       .then(function (data) {
-        var pokeEntry = data.flavor_text_entries[0].flavor_text;
-        // console.log(pokeEntry)
-        var dexEntry = document.querySelector("#pokeentry")
-        dexEntry.textContent = pokeEntry
-  });
+         
+          var dexEntry = document.querySelector("#pokeentry")
+          for(var i = 0; i < data.flavor_text_entries.length; i++){
+          if(data.flavor_text_entries[i].language.name === "en"){
+            var pokeEntry = data.flavor_text_entries[i].flavor_text;
+            dexEntry.textContent = pokeEntry};
+  }});
   });
 }
 
