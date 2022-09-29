@@ -19,11 +19,13 @@ var getPokemon = function(pokeName) {
       var heightText = document.querySelector("#height");
       var weightText = document.querySelector("#weight");
       var typesText = document.querySelector("#types")
+      var typesHeader = document.querySelector("#typestext")
       pokeType = data.types
       var pokeImage = data.sprites.front_default
       nameHeader.textContent = pokeName + " #" + pokeID;
       heightText.textContent = "Height: " + pokeHeightRounded + " feet";
       weightText.textContent = "Weight: " + pokeWeightRounded + " lbs";
+      typesHeader.textContent = "Types:"
       if(typesText.textContent != ""){
         typesText.textContent = ""
     }
@@ -39,7 +41,7 @@ var getPokemon = function(pokeName) {
           return response.json();
   })
         .then(function (data) {
-         
+         console.log(data)
           var dexEntry = document.querySelector("#pokeentry")
           for(var i = 0; i < data.flavor_text_entries.length; i++){
             if(data.flavor_text_entries[i].language.name === "en"){

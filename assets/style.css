@@ -22,3 +22,13 @@
 .modImg{
     width: 240px;
 }
+
+#pokedex {
+    width: 40%; 
+    border:10px inset rgb(36, 35, 35);
+    margin: 0px 25%;
+ }
+ 
+ #pokeImg {
+     width: 20%;
+ }
