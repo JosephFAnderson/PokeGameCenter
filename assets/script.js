@@ -138,15 +138,23 @@ vgc.addEventListener("click", function(pokemonVGC) {
       return response.json();
     })
     .then(function(data){
-      console.log(data);
-      var pokeType = data.type;
+      // var pokeType = data.type;
+      // var whatsMyType = document.querySelector("");
+      var versions = data.game_indices.name;
+      var gamesIn = document.querySelector("#catchEmIn");
+      for (var i = 0; i < versions.length; i++){
+        var inGames = document.createElement("p")
+        inGames.textContent = gamesIn[i].game_indices.name;
+        gamesIn.append(inGames)
+      }
       var moveKit = data.moves;
-      var vidGame = document.querySelector("#vidGameInfo");
+      var pokeMoves = document.querySelector("#vidGameInfo");
       for (var i = 0; i < moveKit.length; i++){
         var moveLi = document.createElement("li")
         moveLi.textContent = moveKit[i].move.name;
-        vidGame.append(moveLi)
+        pokeMoves.append(moveLi)
       }
+      
     })
   // fetch("https://pokeapi.co/api/v2/pokemon-habitat/" + poke + "/")
   //   .then(function(response){
