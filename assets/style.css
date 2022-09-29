@@ -11,10 +11,22 @@
     filter: invert(100%);
 }
 
-#pokedex {
-   width: 50%; 
+.modGallery{
+    left: 15%;
 }
 
-#pokeImg {
-    width: 45%;
+.modal-dialog{
+    margin-top: 0px;
 }
+
+.modImg{
+    width: 240px;
+}
+
+#pokedex {
+    width: 50%; 
+ }
+ 
+ #pokeImg {
+     width: 40%;
+ }
