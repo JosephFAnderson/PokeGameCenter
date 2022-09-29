@@ -1,6 +1,8 @@
 var versions; 
 var moveKit;
 var pokeType;
+var pokeName;
+var favoritedArray = [];
 
 var getPokemon = function(pokeName) {
   fetch("https://pokeapi.co/api/v2/pokemon/" + pokeName + "/")
@@ -74,7 +76,7 @@ function getTCG(pokeName) {
             var innerCarousel = document.querySelector('.carousel-inner');    
             innerCarousel.replaceChildren();                
             var modalBod = document.querySelector('.modal-body');
-            // modalBod.replaceChildren();
+            modalBod.replaceChildren();
            
             // Iterate through the array. Creating carousel elements and adding images to them
             for(var i = 0; i < pokeImg.length; i++) {     
@@ -128,19 +130,34 @@ function getTCG(pokeName) {
         })
 }
 
+
+// add to favorites button & local storage
+var addFavorites = document.createElement("h4");
+addFavorites.textContent = "Add to Favorites";
+addFavorites.addEventListener("click", getThoseFavs);
+function getThoseFavs(){
+  console.log("your favs are saved! :) ");
+  favoritedArray.push(pokeName);
+  localStorage.setItem("favorited poke", JSON.stringify(favoritedArray));
+}
+var favStuff = document.getElementById("fav-sec");
+favStuff.appendChild(addFavorites);
+
+
+
+// search function content
 var searchButton = document.getElementById("searchButton");
 
 searchButton.addEventListener("click", searchPoke);
 
-<<<<<<< HEAD
-=======
+
 function searchPoke(event){
     event.preventDefault();
     var initialSearch = document.getElementById("searcher");
-    var pokeName = initialSearch.value;
+    pokeName = initialSearch.value;
     initialSearch.value = "";
     getPokemon(pokeName);
     getTCG(pokeName);
 }
->>>>>>> 5c81f5e883777518d19b1b6b5c646407d743353e
+
 
