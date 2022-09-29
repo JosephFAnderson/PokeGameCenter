@@ -74,7 +74,7 @@ function getTCG(pokeName) {
             var innerCarousel = document.querySelector('.carousel-inner');    
             innerCarousel.replaceChildren();                
             var modalBod = document.querySelector('.modal-body');
-            // modalBod.replaceChildren();
+            modalBod.replaceChildren();
            
             // Iterate through the array. Creating carousel elements and adding images to them
             for(var i = 0; i < pokeImg.length; i++) {     
@@ -132,8 +132,6 @@ var searchButton = document.getElementById("searchButton");
 
 searchButton.addEventListener("click", searchPoke);
 
-<<<<<<< HEAD
-=======
 function searchPoke(event){
     event.preventDefault();
     var initialSearch = document.getElementById("searcher");
@@ -142,5 +140,4 @@ function searchPoke(event){
     getPokemon(pokeName);
     getTCG(pokeName);
 }
->>>>>>> 5c81f5e883777518d19b1b6b5c646407d743353e
 
