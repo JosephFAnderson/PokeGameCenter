@@ -5,7 +5,6 @@ var getPokemon = function(pokeName) {
     return response.json();
   })
   .then(function (data) {
-    console.log(data);
 
     var pokeID = data.id;
     var name = data.name;
@@ -19,13 +18,12 @@ var getPokemon = function(pokeName) {
     var typesText = document.querySelector("#types")
     var poketype = data.types
     var pokeImage = data.sprites.front_default
-    console.log(typesText.textContent)
     nameHeader.textContent = name + " #" + pokeID;
     heightText.textContent = "Height: " + pokeHeight1 + " feet";
     weightText.textContent = "Weight: " + pokeWeight1 + " lbs";
-    // if(typesText.textContent != ""){
-    //   typesText.textContent = ""
-    // }
+    if(typesText.textContent != ""){
+      typesText.textContent = ""
+    }
     for(var i = 0; i < poketype.length; i++){
       var typeLi = document.createElement("li")
       typeLi.textContent = data.types[i].type.name
@@ -34,15 +32,14 @@ var getPokemon = function(pokeName) {
     document.getElementById("pokeImg").src = pokeImage;
     var idSearch = "https://pokeapi.co/api/v2/pokemon-species/" + pokeID + "/"
     fetch(idSearch)
-  .then(function (response) {
-    return response.json();
+      .then(function (response) {
+        return response.json();
   })
-  .then(function (data) {
-    console.log(data);
-    var pokeEntry = data.flavor_text_entries[0].flavor_text;
-    console.log(pokeEntry)
-    var dexEntry = document.querySelector("#pokeentry")
-    dexEntry.textContent = pokeEntry
+      .then(function (data) {
+        var pokeEntry = data.flavor_text_entries[0].flavor_text;
+        // console.log(pokeEntry)
+        var dexEntry = document.querySelector("#pokeentry")
+        dexEntry.textContent = pokeEntry
   });
   });
 }
