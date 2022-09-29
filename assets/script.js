@@ -153,6 +153,7 @@ vgc.addEventListener("click", function(pokemonVGC) {
       console.log(versions);
       var gamesIn = document.querySelector("#catchEmIn");
       gamesIn.replaceChildren();
+      gamesIn.setAttribute("style", "display: block")
       for (var i = 0; i < versions.length; i++){
         var inGames = document.createElement("li")
         inGames.textContent = versions[i].version.name;
@@ -161,6 +162,7 @@ vgc.addEventListener("click", function(pokemonVGC) {
       var moveKit = data.moves;
       var pokeMoves = document.querySelector("#gameMoves");
       pokeMoves.replaceChildren();
+      pokeMoves.setAttribute("style", "display: block")
       for (var i = 0; i < moveKit.length; i++){
         var moveLi = document.createElement("li")
         moveLi.textContent = moveKit[i].move.name;
@@ -180,6 +182,7 @@ function searchPoke(event){
     initialSearch.value = "";
     getPokemon(pokeName);
     getTCG(pokeName);
+    vgc.setAttribute("style", "display: block")
 }
 
 // add to favorites button & local storage

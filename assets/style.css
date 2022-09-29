@@ -5,8 +5,7 @@ header{
 
 
 #carouselContainer {
-    width: 240px;
-    float: right;
+    width: 240px;    
     margin-right: 15px;
 }
 
@@ -38,12 +37,19 @@ header{
      width: 20%;
  }
 
+
  /* VGC info scroll boxes */
- .pokemonGoToThePolls {
+.pokemonGoToThePolls {
     width: 250px;
     height: 250px;
+    background-color: gray;
     border: 10px inset rgb(36, 35, 35);
     margin: 1%;
     overflow: auto;
-    position: relative;
+    align-self: center;
+    display: none;
+ }
+
+ #vgc {
+    display: none;
  }
