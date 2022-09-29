@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="./assets/style.css">
   <title>PokeGame Center</title>
 </head>
-<body>
+<body class="bg-danger">
     <section>
         <aside>
             <!-- Favorite pokemon section -->
@@ -66,14 +66,18 @@
           </section>
       </article>
   </section>
-    <section id = "pokedex">
-       <img id="pokeImg" src=""/>
-       <h2 id="pokename"></h2>
-       <div id="pokeentry"></div>
-       <p id="height"></p>
-       <p id="weight"></p>
-       <p>Types</p>
-       <ul id="types"></ul>
+    <section id = "pokedex" class="bg-secondary col m-5">
+      <div class="col">
+        <img id="pokeImg" class="" src=""/>
+      </div>
+      <div id = "pokedexctn" class="p-2">
+        <h2 class="text-white" id="pokename"></h2>
+        <div class="text-white" id="pokeentry"></div>
+        <p class="text-white" id="height"></p>
+        <p class="text-white" id="weight"></p>
+        <p class="text-white m-0" id="typestext"></p>
+        <ul class="text-white" id="types"></ul>
+      </div>  
     </section>
 </body>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>

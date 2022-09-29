@@ -10,3 +10,11 @@
 .carousel-control-prev {
     filter: invert(100%);
 }
+
+#pokedex {
+   width: 50%; 
+}
+
+#pokeImg {
+    width: 45%;
+}
