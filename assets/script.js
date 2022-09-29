@@ -3,7 +3,7 @@ var moveKit;
 var pokeType;
 var pokeName;
 var favoritedArray = JSON.parse(localStorage.getItem("favorited poke")) || [];
-
+var pokeAutocomplete = <script src="https://gist.github.com/fenkint1/d9482a96c05b973354ce36f0872770f9.js"></script>
 
 
 
