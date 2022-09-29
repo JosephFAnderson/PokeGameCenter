@@ -1,6 +1,7 @@
 var versions; 
 var moveKit;
 var pokeType;
+
 var getPokemon = function(pokeName) {
   fetch("https://pokeapi.co/api/v2/pokemon/" + pokeName + "/")
     .then(function (response) {
@@ -65,15 +66,19 @@ function getTCG(pokeName) {
             return response.json()
         } )
 	    .then(function (data) {
+        console.log(data);
             // Create Array containing the img objects
             var pokeImg = data.data
             var carouselList = document.querySelector('.carousel-indicators');
             carouselList.replaceChildren();
             var innerCarousel = document.querySelector('.carousel-inner');    
-            innerCarousel.replaceChildren();       
-
-            // Iterate through the array. Creating carousel elements and adding iamges to them
-            for(var i = 0; i < pokeImg.length; i++) {               
+            innerCarousel.replaceChildren();                
+            var modalBod = document.querySelector('.modal-body');
+            // modalBod.replaceChildren();
+           
+            // Iterate through the array. Creating carousel elements and adding images to them
+            for(var i = 0; i < pokeImg.length; i++) {     
+                var addImg = false;          
                 var carouselLi = document.createElement('li');
                 carouselLi.setAttribute('data-type', '#carouselExampleIndicators');
                 carouselLi.setAttribute('data-slide-to', i);
@@ -87,13 +92,38 @@ function getTCG(pokeName) {
                     singleCarDiv.classList.add('active');
                 }
 
+                var modalImg = document.createElement('img');
                 var img = document.createElement('img');
-                img.setAttribute('src', pokeImg[i].images.small);
-                img.classList.add('d-block');
-                img.classList.add('w-100');
+                
+                var imgUrl = pokeImg[i].images.small;
+               
+                //Check if img url returns 404 error              
+                function urlExists(url) {
+                  var http = new XMLHttpRequest();
+                  http.open('HEAD', url, false);
+                  http.send();
+                  if (http.status != 404) {
+                    addImg = true;
+                  } 
+                }                   
 
-                singleCarDiv.appendChild(img);
-                innerCarousel.appendChild(singleCarDiv);                
+                urlExists(imgUrl);
+
+                // If no error message detected then add image to html
+                if (addImg){
+                  modalImg.setAttribute('src', pokeImg[i].images.small);
+                  modalImg.classList.add('p-1');
+                  modalImg.classList.add('modImg');
+                  
+                  
+                  img.setAttribute('src', pokeImg[i].images.small);                
+                  img.classList.add('d-block');
+                  img.classList.add('w-100');
+
+                  modalBod.appendChild(modalImg);
+                  singleCarDiv.appendChild(img);               
+                  innerCarousel.appendChild(singleCarDiv);                
+                }                                 
             }
         })
 }
@@ -102,4 +132,15 @@ var searchButton = document.getElementById("searchButton");
 
 searchButton.addEventListener("click", searchPoke);
 
+<<<<<<< HEAD
+=======
+function searchPoke(event){
+    event.preventDefault();
+    var initialSearch = document.getElementById("searcher");
+    var pokeName = initialSearch.value;
+    initialSearch.value = "";
+    getPokemon(pokeName);
+    getTCG(pokeName);
+}
+>>>>>>> 5c81f5e883777518d19b1b6b5c646407d743353e
 
