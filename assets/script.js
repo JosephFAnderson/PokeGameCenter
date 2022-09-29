@@ -49,6 +49,7 @@ var getPokemon = function(pokeName) {
               dexEntry.textContent = pokeEntry};
   }});
   });
+  
 }
 
 
