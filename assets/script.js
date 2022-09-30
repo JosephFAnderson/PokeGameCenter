@@ -5,6 +5,8 @@ var pokeName;
 var pokeID;
 var favoritedArray = JSON.parse(localStorage.getItem("favorited poke")) || [];
 var dropdownMenu = document.getElementById("dropdownMenu");
+var gamesIn = document.querySelector("#catchEmIn");
+var pokeMoves = document.querySelector("#gameMoves");
 
 var pokeString = "Bulbasaur,Ivysaur,Venusaur,Charmander,Charmeleon,Charizard,Squirtle,Wartortle,Blastoise,Caterpie,Metapod,Butterfree,Weedle,Kakuna,Beedrill,Pidgey,Pidgeotto,"
 + "Pidgeot,Rattata,Raticate,Spearow,Fearow,Ekans,Arbok,Pikachu,Raichu,Sandshrew,Sandslash,Nidoran♀,Nidorina,Nidoqueen,Nidoran♂,Nidorino,Nidoking,Clefairy,Clefable,Vulpix,Ninetales,Jigglypuff,Wigglytuff,Zubat,Golbat,Oddish,Gloom,Vileplume,Paras,Parasect,Venonat,Venomoth,Diglett,Dugtrio,Meowth,Persian,Psyduck,Golduck,Mankey,Primeape,Growlithe,Arcanine,Poliwag,Poliwhirl,Poliwrath,Abra,Kadabra,Alakazam,Machop,Machoke,Machamp,Bellsprout,Weepinbell,Victreebel,Tentacool,Tentacruel,Geodude,Graveler,Golem,Ponyta,Rapidash,Slowpoke,Slowbro,Magnemite,Magneton,Farfetch’d,"
@@ -76,6 +78,8 @@ function searchFavs(e){
 }
 
 var getPokemon = function(pokeName) {
+  gamesIn.setAttribute("style", "display: none")
+  pokeMoves.setAttribute("style", "display: none")
   fetch("https://pokeapi.co/api/v2/pokemon/" + pokeName + "/")
     .then(function (response) {
       return response.json();
@@ -262,7 +266,6 @@ vgc.addEventListener("click", function(pokemonVGC) {
     .then(function(data){
       var versions = data.game_indices;
       console.log(versions);
-      var gamesIn = document.querySelector("#catchEmIn");
       gamesIn.replaceChildren();
       gamesIn.setAttribute("style", "display: block")
       for (var i = 0; i < versions.length; i++){
@@ -271,7 +274,6 @@ vgc.addEventListener("click", function(pokemonVGC) {
         gamesIn.append(inGames)
       }
       var moveKit = data.moves;
-      var pokeMoves = document.querySelector("#gameMoves");
       pokeMoves.replaceChildren();
       pokeMoves.setAttribute("style", "display: block")
       for (var i = 0; i < moveKit.length; i++){
