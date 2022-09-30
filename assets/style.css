@@ -69,6 +69,9 @@ main{
      width: 20%;
  }
 
+ #console {
+  align-self: center;
+ }
 
  /* VGC info scroll boxes */
 .pokemonGoToThePolls {
@@ -78,12 +81,14 @@ main{
     border: 10px inset rgb(36, 35, 35);
     margin: 1%;
     overflow: auto;
-    align-self: center;
     display: none;
+    color:#ffffff;
  }
 
 /* Vid Game button */
  #vgc {
+    position: relative;
+    align-self: center;
     display: none;
  }
 
