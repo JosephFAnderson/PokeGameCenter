@@ -51,6 +51,7 @@ var pokeString = "Bulbasaur,Ivysaur,Venusaur,Charmander,Charmeleon,Charizard,Squ
 pokeString.toLowerCase();
 var autoPoke = pokeString.split(',');
 
+
 function favs(){
   dropdownMenu.replaceChildren();
   for (var i = 0; i < favoritedArray.length; i++){
@@ -408,3 +409,10 @@ document.addEventListener("click", function (e) {
 var input = document.getElementById('searcher');
 autocomplete(input, autoPoke);
 
+if(favoritedArray.length > 0){
+  var i = Math.floor(Math.random()*favoritedArray.length);
+  pokeName = favoritedArray[i];
+  getPokemon(pokeName);
+  getTCG(pokeName);
+  vgc.setAttribute("style", "display: block")
+}
