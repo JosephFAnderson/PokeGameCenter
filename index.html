@@ -16,7 +16,7 @@
       <div class="dropdown">
         <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
           aria-haspopup="true" aria-expanded="false">
-          Favorites
+          Bill's PC
         </button>
         <div class="dropdown-menu" id="dropdownMenu" aria-labelledby="dropdownMenuButton">
         </div>
@@ -26,24 +26,24 @@
           <div class="autocomplete">
             <input id ="searcher" type="text" placeholder="Search a Pokemon" value= "">
           </div>            
-            <button id="searchButton" type = "submit" value="submit"> Search </button>
+            <button id="searchButton" type = "submit" value="submit" class="button"> Search </button>
         </form>     
       </nav>
       <div class="col-4">
-          <img src="/assets/weblogo.png" id="logo" alt="Logo goes here" />
+          <img src="/assets/weblogo.png" id="logo" alt="PokeGame Room logo in pokemon font on a blue GameBoy Advance" />
       </div>
     </header>
     <main class="d-flex ">
-      <section>
-      <article>
+      <section id="console">
           <!-- pokemon search basic info here (sprite, para, buttons) -->
           
-          <button id="vgc">Video Game Info</button>
+          <button id="vgc" class="button">Video Game Info</button>
+          <legend>Game Appearances</legend>
           <ul id="catchEmIn" class="pokemonGoToThePolls"></ul>
+          <legend>Move Capabilities</legend>
           <ul id="gameMoves" class="pokemonGoToThePolls"></ul>
           <!-- card images in a fresh section -->
    
-      </article>
       </section>
   <!-- Pokedex Section -->
       <section id = "pokedex" class="bg-secondary rounded d-flex flex-column">
@@ -64,7 +64,7 @@
           <button id="incrementpokemon" class="float-right"></button>
         </div> 
       </section>
-      <section id="carouselContainer" class="d-flex flex-column">   
+      <section id="carouselContainer" class="flex-column">   
         <button id="imgGallery" class="justify-self-center" type='button' data-toggle='modal' data-target="#exampleModal">View all images</button>           
         <div id="carouselExampleIndicators" class="carousel slide" data-interval="0" data-ride="carousel">
           <ol class="carousel-indicators">  

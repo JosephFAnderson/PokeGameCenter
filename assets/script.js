@@ -80,6 +80,10 @@ function searchFavs(e){
 var getPokemon = function(pokeName) {
   gamesIn.setAttribute("style", "display: none")
   pokeMoves.setAttribute("style", "display: none")
+  var legend = document.querySelectorAll("legend")
+  for (var i = 0; i < legend.length; i++) {
+    legend[i].setAttribute("style", "display: none")
+  }
   fetch("https://pokeapi.co/api/v2/pokemon/" + pokeName + "/")
     .then(function (response) {
       return response.json();
@@ -178,6 +182,8 @@ prevPokemon.addEventListener("click", function(event){
 // Take in the users pokemon name and fetch the TCG cards for that pokemon
 function getTCG(pokeName) {
     // Create variable to add header to fetch call
+    var carouselContainer = document.querySelector('#carouselContainer');
+    carouselContainer.setAttribute('style', 'display: none');
     var options = {
 	method: 'GET',
 	headers: {
@@ -190,7 +196,8 @@ function getTCG(pokeName) {
             return response.json()
         } )
 	    .then(function (data) {
-            // Create Array containing the img objects
+            // Create Array containing the img objects            
+            carouselContainer.setAttribute('style', 'display: flex');
             var pokeImg = data.data
             var carouselList = document.querySelector('.carousel-indicators');
             carouselList.replaceChildren();
@@ -256,7 +263,7 @@ function getTCG(pokeName) {
 
 // Show Pokemon video game info not already displayed in defualt search
 
-var vgc = document.querySelector("#vgc");
+var vgc = document.getElementById("vgc");
 
 vgc.addEventListener("click", function(pokemonVGC) {
   fetch("https://pokeapi.co/api/v2/pokemon/" + pokeName) 
@@ -265,7 +272,6 @@ vgc.addEventListener("click", function(pokemonVGC) {
     })
     .then(function(data){
       var versions = data.game_indices;
-      console.log(versions);
       gamesIn.replaceChildren();
       gamesIn.setAttribute("style", "display: block")
       for (var i = 0; i < versions.length; i++){
@@ -276,6 +282,10 @@ vgc.addEventListener("click", function(pokemonVGC) {
       var moveKit = data.moves;
       pokeMoves.replaceChildren();
       pokeMoves.setAttribute("style", "display: block")
+      var legend = document.querySelectorAll("legend")
+       for (var i = 0; i < legend.length; i++){
+        legend[i].setAttribute("style", "display: block")
+       }
       for (var i = 0; i < moveKit.length; i++){
         var moveLi = document.createElement("li")
         moveLi.textContent = moveKit[i].move.name;

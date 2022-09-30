@@ -1,25 +1,44 @@
-header{
+header {
     width: 100%;
     height: 50px;
 }
 
-main{
+main {
     height: 100vh;
 }
 
-#favs{
+#favs {
     height: 50px;
 }
 
 #logo {
     height: 40%;
-    width: 40%;
+    width: 55%;
+    justify-content: end;
+}
+
+main button, #searchButton {
+  background-color: #444040;
+  color: #F7E8E8;
+  border-radius: 10px;
+  border: 4px solid #444040;
+  text-align: center;
+  margin: 9px;
+  box-shadow: 2px 1px 4px 1px #393939;
+}
+
+button:hover {
+  background-color: #231D1D;
+  border-radius: 10px;
+  border: 4px solid #231D1D;
+  box-shadow: 1px 0px 3px 1px #393939;
 }
 
 #carouselContainer {
     width: 240px;    
     margin-right: 15px;
     align-self: center;
+    display: none;
 }
 
 /*.carousel-indicators */
@@ -51,8 +70,18 @@ main{
      width: 20%;
  }
 
+ #console {
+  align-self: center;
+ }
 
  /* VGC info scroll boxes */
+legend {
+  color:#ffffff;
+  background-color: gray;
+  border: 3px solid #393939;
+  display: none;
+}
+
 .pokemonGoToThePolls {
     width: 250px;
     height: 250px;
@@ -60,12 +89,14 @@ main{
     border: 10px inset rgb(36, 35, 35);
     margin: 1%;
     overflow: auto;
-    align-self: center;
     display: none;
+    color:#ffffff;
  }
 
 /* Vid Game button */
  #vgc {
+    position: relative;
+    align-self: center;
     display: none;
  }
 
