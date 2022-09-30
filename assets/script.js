@@ -302,9 +302,11 @@ function searchPoke(event){
 var addFavorites = document.querySelector("#catchPoke");
 addFavorites.addEventListener("click", getThoseFavs);
 function getThoseFavs(){
+  if (!favoritedArray.includes(pokeName)){
   favoritedArray.push(pokeName);
   localStorage.setItem("favorited poke", JSON.stringify(favoritedArray));
   favs();
+}
 }
 // var favStuff = document.getElementById("fav-sec");
 // favStuff.appendChild(addFavorites);
