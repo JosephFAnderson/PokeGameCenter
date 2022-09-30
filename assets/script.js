@@ -299,8 +299,7 @@ function searchPoke(event){
 }
 
 // add to favorites button & local storage
-var addFavorites = document.querySelector("h4");
-addFavorites.textContent = "Catch this Pokemon";
+var addFavorites = document.querySelector("#catchPoke");
 addFavorites.addEventListener("click", getThoseFavs);
 function getThoseFavs(){
   favoritedArray.push(pokeName);
