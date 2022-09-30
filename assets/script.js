@@ -80,6 +80,10 @@ function searchFavs(e){
 var getPokemon = function(pokeName) {
   gamesIn.setAttribute("style", "display: none")
   pokeMoves.setAttribute("style", "display: none")
+  var legend = document.querySelectorAll("legend")
+  for (var i = 0; i < legend.length; i++) {
+    legend[i].setAttribute("style", "display: none")
+  }
   fetch("https://pokeapi.co/api/v2/pokemon/" + pokeName + "/")
     .then(function (response) {
       return response.json();
@@ -268,11 +272,6 @@ vgc.addEventListener("click", function(pokemonVGC) {
     })
     .then(function(data){
       var versions = data.game_indices;
-<<<<<<< HEAD
-      var gamesIn = document.querySelector("#catchEmIn");
-=======
-      console.log(versions);
->>>>>>> 59548c710a0407ec5a0ea5e1f5fed53577d6f262
       gamesIn.replaceChildren();
       gamesIn.setAttribute("style", "display: block")
       for (var i = 0; i < versions.length; i++){
@@ -283,6 +282,10 @@ vgc.addEventListener("click", function(pokemonVGC) {
       var moveKit = data.moves;
       pokeMoves.replaceChildren();
       pokeMoves.setAttribute("style", "display: block")
+      var legend = document.querySelectorAll("legend")
+       for (var i = 0; i < legend.length; i++){
+        legend[i].setAttribute("style", "display: block")
+       }
       for (var i = 0; i < moveKit.length; i++){
         var moveLi = document.createElement("li")
         moveLi.textContent = moveKit[i].move.name;
