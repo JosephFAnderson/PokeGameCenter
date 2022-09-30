@@ -2,6 +2,7 @@ var versions;
 var moveKit;
 var pokeType;
 var pokeName;
+var pokeID;
 var favoritedArray = JSON.parse(localStorage.getItem("favorited poke")) || [];
 var dropdownMenu = document.getElementById("dropdownMenu");
 
@@ -50,12 +51,7 @@ var pokeString = "Bulbasaur,Ivysaur,Venusaur,Charmander,Charmeleon,Charizard,Squ
 pokeString.toLowerCase();
 var autoPoke = pokeString.split(',');
 
-
 function favs(){
-  // if (favoritedArray.length > 0){
-  //   console.log("here are your favs");
-  
-  
   dropdownMenu.replaceChildren();
   for (var i = 0; i < favoritedArray.length; i++){
     var favsList = favoritedArray[i];
@@ -86,7 +82,7 @@ var getPokemon = function(pokeName) {
     .then(function (data) {
       versions = data.game_indices;
       moveKit = data.moves;
-      var pokeID = data.id;
+      pokeID = data.id;
       var pokeHeight = (data.height*.328084);
       var pokeHeightRounded = Math.round(pokeHeight * 10)/10
       var pokeWeight =data.weight*.220462;
@@ -122,9 +118,55 @@ var getPokemon = function(pokeName) {
             if(data.flavor_text_entries[i].language.name === "en"){
               var pokeEntry = data.flavor_text_entries[i].flavor_text;
               dexEntry.textContent = pokeEntry};
-  }});
+              }
+          // Creating buttons for increment and decrement  
+          pokeID += 1;
+            if(pokeID <= 905){
+              fetch("https://pokeapi.co/api/v2/pokemon-species/" + pokeID)
+                .then(function (response) {
+                  return response.json();
+              })
+                .then(function (data) {
+                  nextPokemon.setAttribute("style", "display: inline-block")
+                  nextPokemon.value = data.name;
+                  nextPokemon.textContent = data.name + " #" + data.id + " >";
+              })}else{
+                  nextPokemon.setAttribute("style", "display: none")
+            };
+
+            pokeID -= 2;
+            if(pokeID > 0){
+            fetch("https://pokeapi.co/api/v2/pokemon-species/" + pokeID)
+              .then(function (response) {
+              return response.json();
+            })
+              .then(function (data) {
+                prevPokemon.setAttribute("style", "display: inline-block")
+                prevPokemon.value = data.name;
+                prevPokemon.textContent = "< #" + data.id + " " + data.name;    
+            })
+          }else{
+            prevPokemon.setAttribute("style", "display: none")
+          };
+        
+});
+   });
+};
+
+// Functionality for increment and decrement buttons
+var nextPokemon = document.querySelector("#incrementpokemon") 
+nextPokemon.addEventListener("click", function(event){
+ var incrementPokemom = event.target.value;
+  getPokemon(incrementPokemom); 
+  getTCG(incrementPokemom);
   });
-}
+
+var prevPokemon = document.querySelector("#decrementpokemon") 
+prevPokemon.addEventListener("click", function(event){
+  var decrementPokemom = event.target.value;
+  getPokemon(decrementPokemom); 
+  getTCG(decrementPokemom);
+  });
 
 
 
