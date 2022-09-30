@@ -1,13 +1,13 @@
-header{
+header {
     width: 100%;
     height: 50px;
 }
 
-main{
+main {
     height: 100vh;
 }
 
-#favs{
+#favs {
     height: 50px;
 }
 
@@ -24,10 +24,10 @@ main button, #searchButton {
   border: 4px solid #444040;
   text-align: center;
   margin: 9px;
-  box-shadow: 1px 0px 3px 1px #393939;
+  box-shadow: 2px 1px 4px 1px #393939;
 }
 
-.button:hover {
+button:hover {
   background-color: #231D1D;
   border-radius: 10px;
   border: 4px solid #231D1D;
