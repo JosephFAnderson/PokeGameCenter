@@ -50,7 +50,24 @@ pokeString.toLowerCase();
 var autoPoke = pokeString.split(',');
 
 
+function favs(){
+  // if (favoritedArray.length > 0){
+  //   console.log("here are your favs");
+  var dropdownMenu = document.getElementById("dropdownMenu");
+  console.log(dropdownMenu);
+  for (var i = 0; i < favoritedArray.length; i++){
+    var favsList = favoritedArray[i];
+    console.log(favsList);
+   var newE = document.createElement("a");
+   newE.classList.add("dropdown-item");
+   newE.setAttribute("href","#");
+   newE.innerHTML = favsList;
+    console.log(newE);
+   dropdownMenu.appendChild(newE);
 
+  }
+  }
+favs();
 
 var getPokemon = function(pokeName) {
   fetch("https://pokeapi.co/api/v2/pokemon/" + pokeName + "/")

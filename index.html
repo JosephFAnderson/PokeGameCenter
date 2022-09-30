@@ -11,9 +11,24 @@
 </head>
 <body class="bg-danger">
     <header class="row w-100 m-0 d-flex justify-content-between bg-primary">
-      <div class="col-4">
-        Fav Goes HERE!
-      </div>        
+      <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Dropdown button
+        </button>
+        <div class="dropdown-menu" id ="dropdownMenu" aria-labelledby="dropdownMenuButton">
+          <!-- <a class="dropdown-item" href="#">Action</a> -->
+        </div>
+      </div>
+      <!-- <div id ="display-favs" class="dropdown col-4">
+        <button  class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+          Favorites
+        </button>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" href="#">Hello</a></li>
+          <li><a class="dropdown-item" href="#"></a></li>
+          <li><a class="dropdown-item" href="#"></a></li>
+        </ul>
+      </div>        -->
       <nav class="col-4">            
         <form autocomplete="off">
           <div class="autocomplete">
@@ -23,7 +38,7 @@
         </form>     
       </nav>
       <div class="col-4">
-          <img src="/assets/weblogo.png" id="logo" alt="Logo goes here" />
+          <img src="./assets/weblogo.png" id="logo" alt="Logo goes here" />
       </div>
     </header>
     <main>
