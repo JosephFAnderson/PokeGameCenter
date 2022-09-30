@@ -96,53 +96,53 @@ var getPokemon = function(pokeName) {
               var pokeEntry = data.flavor_text_entries[i].flavor_text;
               dexEntry.textContent = pokeEntry};
               }
+          // Creating buttons for increment and decrement  
           pokeID += 1;
-            if(pokeID < 905){
+            if(pokeID <= 905){
               fetch("https://pokeapi.co/api/v2/pokemon-species/" + pokeID)
                 .then(function (response) {
                   return response.json();
               })
                 .then(function (data) {
-                  console.log(data.name)
-                  var nextPokemon = document.querySelector("#incrementpokemon")
+                  nextPokemon.setAttribute("style", "display: inline-block")
                   nextPokemon.value = data.name;
                   nextPokemon.textContent = data.name + " #" + data.id + " >";
-              })};
+              })}else{
+                  nextPokemon.setAttribute("style", "display: none")
+            };
 
             pokeID -= 2;
             if(pokeID > 0){
             fetch("https://pokeapi.co/api/v2/pokemon-species/" + pokeID)
               .then(function (response) {
-                return response.json();
+              return response.json();
             })
               .then(function (data) {
-                var prevPokemon = document.querySelector("#decrementpokemon")
-                  console.log(data.name)
-                  prevPokemon.value = data.name;
-                  prevPokemon.textContent = "< #" + data.id + " " + data.name;
-                
+                prevPokemon.setAttribute("style", "display: inline-block")
+                prevPokemon.value = data.name;
+                prevPokemon.textContent = "< #" + data.id + " " + data.name;    
             })
+          }else{
+            prevPokemon.setAttribute("style", "display: none")
           };
         
 });
    });
 };
+
+// Functionality for increment and decrement buttons
 var nextPokemon = document.querySelector("#incrementpokemon") 
 nextPokemon.addEventListener("click", function(event){
- var incrementPokemom = event.target.value
- console.log(incrementPokemom)
+ var incrementPokemom = event.target.value;
   getPokemon(incrementPokemom); 
   getTCG(incrementPokemom);
-  vgc.setAttribute("style", "display: block")
   });
 
 var prevPokemon = document.querySelector("#decrementpokemon") 
 prevPokemon.addEventListener("click", function(event){
-  var decrementPokemom = event.target.value
-  console.log(decrementPokemom)
+  var decrementPokemom = event.target.value;
   getPokemon(decrementPokemom); 
   getTCG(decrementPokemom);
-  vgc.setAttribute("style", "display: block")
   });
 
 

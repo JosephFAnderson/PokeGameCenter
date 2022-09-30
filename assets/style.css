@@ -7,6 +7,10 @@ main{
     height: 100vh;
 }
 
+#favs{
+    height: 50px;
+}
+
 #logo {
     height: 40%;
     width: 40%;
@@ -96,4 +100,12 @@ main{
     /*when navigating through the items using the arrow keys:*/
     background-color: DodgerBlue !important;
     color: #ffffff;
+  }
+
+  #incrementpokemon{
+    display: none;
+  }
+
+  #decrementpokemon{
+    display: none;
   }
