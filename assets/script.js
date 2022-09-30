@@ -178,6 +178,8 @@ prevPokemon.addEventListener("click", function(event){
 // Take in the users pokemon name and fetch the TCG cards for that pokemon
 function getTCG(pokeName) {
     // Create variable to add header to fetch call
+    var carouselContainer = document.querySelector('#carouselContainer');
+    carouselContainer.setAttribute('style', 'display: none');
     var options = {
 	method: 'GET',
 	headers: {
@@ -190,7 +192,8 @@ function getTCG(pokeName) {
             return response.json()
         } )
 	    .then(function (data) {
-            // Create Array containing the img objects
+            // Create Array containing the img objects            
+            carouselContainer.setAttribute('style', 'display: flex');
             var pokeImg = data.data
             var carouselList = document.querySelector('.carousel-indicators');
             carouselList.replaceChildren();
