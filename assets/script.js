@@ -169,16 +169,16 @@ var getPokemon = function(pokeName) {
 // Functionality for increment and decrement buttons
 var nextPokemon = document.querySelector("#incrementpokemon") 
 nextPokemon.addEventListener("click", function(event){
- var incrementPokemom = event.target.value;
-  getPokemon(incrementPokemom); 
-  getTCG(incrementPokemom);
+ pokeName = event.target.value;
+  getPokemon(pokeName); 
+  getTCG(pokeName);
   });
 
 var prevPokemon = document.querySelector("#decrementpokemon") 
 prevPokemon.addEventListener("click", function(event){
-  var decrementPokemom = event.target.value;
-  getPokemon(decrementPokemom); 
-  getTCG(decrementPokemom);
+  pokeName = event.target.value;
+  getPokemon(pokeName); 
+  getTCG(pokeName);
   });
 
 
