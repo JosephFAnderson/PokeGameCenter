@@ -4,6 +4,7 @@ var pokeType;
 var pokeName;
 var pokeID;
 var favoritedArray = JSON.parse(localStorage.getItem("favorited poke")) || [];
+var dropdownMenu = document.getElementById("dropdownMenu");
 
 var pokeString = "Bulbasaur,Ivysaur,Venusaur,Charmander,Charmeleon,Charizard,Squirtle,Wartortle,Blastoise,Caterpie,Metapod,Butterfree,Weedle,Kakuna,Beedrill,Pidgey,Pidgeotto,"
 + "Pidgeot,Rattata,Raticate,Spearow,Fearow,Ekans,Arbok,Pikachu,Raichu,Sandshrew,Sandslash,Nidoran♀,Nidorina,Nidoqueen,Nidoran♂,Nidorino,Nidoking,Clefairy,Clefable,Vulpix,Ninetales,Jigglypuff,Wigglytuff,Zubat,Golbat,Oddish,Gloom,Vileplume,Paras,Parasect,Venonat,Venomoth,Diglett,Dugtrio,Meowth,Persian,Psyduck,Golduck,Mankey,Primeape,Growlithe,Arcanine,Poliwag,Poliwhirl,Poliwrath,Abra,Kadabra,Alakazam,Machop,Machoke,Machamp,Bellsprout,Weepinbell,Victreebel,Tentacool,Tentacruel,Geodude,Graveler,Golem,Ponyta,Rapidash,Slowpoke,Slowbro,Magnemite,Magneton,Farfetch’d,"
@@ -50,6 +51,28 @@ var pokeString = "Bulbasaur,Ivysaur,Venusaur,Charmander,Charmeleon,Charizard,Squ
 pokeString.toLowerCase();
 var autoPoke = pokeString.split(',');
 
+function favs(){
+  dropdownMenu.replaceChildren();
+  for (var i = 0; i < favoritedArray.length; i++){
+    var favsList = favoritedArray[i];
+   var newE = document.createElement("button");
+   newE.classList.add("dropdown-item");
+   newE.setAttribute("href","#");
+   newE.innerHTML = favsList;
+   dropdownMenu.appendChild(newE);
+  }
+  }
+favs();
+
+dropdownMenu.addEventListener("click", searchFavs);
+
+function searchFavs(e){
+  var pokes = e.target;
+  pokeName = pokes.textContent;
+  getPokemon(pokeName);
+  getTCG(pokeName);
+  vgc.setAttribute("style", "display: block");
+}
 
 var getPokemon = function(pokeName) {
   fetch("https://pokeapi.co/api/v2/pokemon/" + pokeName + "/")
@@ -273,12 +296,13 @@ function searchPoke(event){
 }
 
 // add to favorites button & local storage
-var addFavorites = document.createElement("h4");
+var addFavorites = document.querySelector("h4");
 addFavorites.textContent = "Add to Favorites";
 addFavorites.addEventListener("click", getThoseFavs);
 function getThoseFavs(){
   favoritedArray.push(pokeName);
   localStorage.setItem("favorited poke", JSON.stringify(favoritedArray));
+  favs();
 }
 // var favStuff = document.getElementById("fav-sec");
 // favStuff.appendChild(addFavorites);
