@@ -3,6 +3,14 @@ header{
     height: 50px;
 }
 
+main{
+    height: 100vh;
+}
+
+#favs{
+    height: 50px;
+}
+
 #logo {
     height: 52%;
     width: 55%;
@@ -29,7 +37,7 @@ header{
 #carouselContainer {
     width: 240px;    
     margin-right: 15px;
-    justify-content: right;
+    align-self: center;
 }
 
 /*.carousel-indicators */
@@ -53,7 +61,8 @@ header{
 #pokedex {
     width: 40%; 
     border:10px inset rgb(36, 35, 35);
-    margin: 0px 25%;
+    margin: 10%;
+    align-self: center;
  }
  
  #pokeImg {
@@ -109,4 +118,12 @@ header{
     /*when navigating through the items using the arrow keys:*/
     background-color: DodgerBlue !important;
     color: #ffffff;
+  }
+
+  #incrementpokemon{
+    display: none;
+  }
+
+  #decrementpokemon{
+    display: none;
   }
