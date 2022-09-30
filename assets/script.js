@@ -45,10 +45,14 @@ var pokeString = "Bulbasaur,Ivysaur,Venusaur,Charmander,Charmeleon,Charizard,Squ
 + "Hakamo-o,Kommo-o,Tapu Koko,Tapu Lele,Tapu Bulu,Tapu Fini,Cosmog,Cosmoem,Solgaleo,Lunala,Nihilego,Buzzwole,Pheromosa,Xurkitree,Celesteela,Kartana,Guzzlord,Necrozma,Magearna,"
 + "Marshadow,Poipole,Naganadel,Stakataka,Blacephalon,Zeraora,Meltan,Melmetal,Grookey,Thwackey,Rillaboom,Scorbunny,Raboot,Cinderace,Sobble,Drizzile,Inteleon,Skwovet,Greedent,"
 + "Rookidee,Corvisquire,Corviknight,Blipbug,Dottler,Orbeetle,Nickit,Thievul,Gossifleur,Eldegoss,Wooloo,Dubwool,Chewtle,Drednaw,Yamper,Boltund,Rolycoly,Carkol,Coalossal,Applin,"
-+ "Flapple,Appletun,Silicobra,Sandaconda,Cramorant,Arrokuda,Barraskewda,Toxel,Toxtricity,Sizzlipede,Centiskorch,Clobbopus,Grapploct,Sinistea,Polteageist,Hatenna,Hattrem,"
-+ "Hatterene,Impidimp,Morgrem,Grimmsnarl,Obstagoon,Perrserker,Cursola,Sirfetch'd,Mr. Rime,Runerigus,Milcery,Alcremie,Falinks,Pincurchin,Snom,Frosmoth,Stonjourner,Eiscue,"
-+ "Indeedee,Morpeko,Cufant,Copperajah,Dracozolt,Arctozolt,Dracovish,Arctovish,Duraludon,Dreepy,Drakloak,Dragapult,Zacian,Zamazenta,Eternatus,Kubfu,Urshifu,Zarude,Regieleki,"
-+ "Regidrago,Glastrier,Spectrier,Calyrex,Wyrdeer,Kleavor,Ursaluna,Basculegion,Sneasler,Overqwil,Enamorus"
++ "Flapple,Appletun,Silicobra,Sandaconda,Cramorant,Arrokuda,Barraskewda,Toxel,Sizzlipede,Centiskorch,Clobbopus,Grapploct,Sinistea,Polteageist,Hatenna,Hattrem,"
++ "Hatterene,Impidimp,Morgrem,Grimmsnarl,Obstagoon,Perrserker,Cursola,Sirfetch'd,Mr. Rime,Runerigus,Milcery,Alcremie,Falinks,Pincurchin,Snom,Frosmoth,Stonjourner,"
++ "Cufant,Copperajah,Dracozolt,Arctozolt,Dracovish,Arctovish,Duraludon,Dreepy,Drakloak,Dragapult,Zacian,Zamazenta,Eternatus,Kubfu,Zarude,Regieleki,"
++ "Regidrago,Glastrier,Spectrier,Calyrex"
+
+/*
+Toxtricity Eiscue Enamorus Overqwil Sneasler Basculegion Wyrdeer Kleavor Ursaluna Urshifu Morpeko Indeedee
+*/
 
 pokeString.toLowerCase();
 var autoPoke = pokeString.split(',');
@@ -130,7 +134,7 @@ var getPokemon = function(pokeName) {
               }
           // Creating buttons for increment and decrement  
           pokeID += 1;
-            if(pokeID <= 905){
+            if(pokeID <= 874){
               fetch("https://pokeapi.co/api/v2/pokemon-species/" + pokeID)
                 .then(function (response) {
                   return response.json();
@@ -142,9 +146,9 @@ var getPokemon = function(pokeName) {
               })}else{
                   nextPokemon.setAttribute("style", "display: none")
             };
-
+            
             pokeID -= 2;
-            if(pokeID > 0){
+            if(pokeID > 0 && pokeID < 875){
             fetch("https://pokeapi.co/api/v2/pokemon-species/" + pokeID)
               .then(function (response) {
               return response.json();
@@ -165,16 +169,16 @@ var getPokemon = function(pokeName) {
 // Functionality for increment and decrement buttons
 var nextPokemon = document.querySelector("#incrementpokemon") 
 nextPokemon.addEventListener("click", function(event){
- var incrementPokemom = event.target.value;
-  getPokemon(incrementPokemom); 
-  getTCG(incrementPokemom);
+ pokeName = event.target.value;
+  getPokemon(pokeName); 
+  getTCG(pokeName);
   });
 
 var prevPokemon = document.querySelector("#decrementpokemon") 
 prevPokemon.addEventListener("click", function(event){
-  var decrementPokemom = event.target.value;
-  getPokemon(decrementPokemom); 
-  getTCG(decrementPokemom);
+  pokeName = event.target.value;
+  getPokemon(pokeName); 
+  getTCG(pokeName);
   });
 
 
@@ -191,7 +195,7 @@ function getTCG(pokeName) {
     }};
 
     // Fetch pokemone cards from Pokemotcg API
-    fetch('https://api.pokemontcg.io/v2/cards?q=name:' + pokeName, options)
+    fetch("https://api.pokemontcg.io/v2/cards?q=name:" + pokeName, options)
 	    .then(function (response) {
             return response.json()
         } )
