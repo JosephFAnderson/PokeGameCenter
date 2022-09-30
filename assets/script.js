@@ -260,9 +260,7 @@ vgc.addEventListener("click", function(pokemonVGC) {
       return response.json();
     })
     .then(function(data){
-      console.log();
       var versions = data.game_indices;
-      console.log(versions);
       var gamesIn = document.querySelector("#catchEmIn");
       gamesIn.replaceChildren();
       gamesIn.setAttribute("style", "display: block")

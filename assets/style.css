@@ -12,12 +12,12 @@ main{
 }
 
 #logo {
-    height: 52%;
+    height: 40%;
     width: 55%;
     justify-content: end;
 }
 
-.button {
+main button, #searchButton {
   background-color: #444040;
   color: #F7E8E8;
   border-radius: 10px;
@@ -74,6 +74,13 @@ main{
  }
 
  /* VGC info scroll boxes */
+legend {
+  color:#ffffff;
+  background-color: gray;
+  border: 3px solid #393939;
+  display: none;
+}
+
 .pokemonGoToThePolls {
     width: 250px;
     height: 250px;
