@@ -103,15 +103,10 @@ var getPokemon = function(pokeName) {
                   return response.json();
               })
                 .then(function (data) {
-                  var nextPokemon = document.querySelector("#incrementpokemon")
                   console.log(data.name)
+                  var nextPokemon = document.querySelector("#incrementpokemon")
+                  nextPokemon.value = data.name;
                   nextPokemon.textContent = data.name + " #" + data.id + " >";
-                  // nextPokemon.addEventListener(click, function(){
-                  //   getPokemon(data.name); 
-                  //   getTCG(data.name);
-                  //   vgc.setAttribute("style", "display: block")
-                  // })
-                
               })};
 
             pokeID -= 2;
@@ -123,6 +118,7 @@ var getPokemon = function(pokeName) {
               .then(function (data) {
                 var prevPokemon = document.querySelector("#decrementpokemon")
                   console.log(data.name)
+                  prevPokemon.value = data.name;
                   prevPokemon.textContent = "< #" + data.id + " " + data.name;
                 
             })
@@ -131,9 +127,23 @@ var getPokemon = function(pokeName) {
 });
    });
 };
+var nextPokemon = document.querySelector("#incrementpokemon") 
+nextPokemon.addEventListener("click", function(event){
+ var incrementPokemom = event.target.value
+ console.log(incrementPokemom)
+  getPokemon(incrementPokemom); 
+  getTCG(incrementPokemom);
+  vgc.setAttribute("style", "display: block")
+  });
 
-
-
+var prevPokemon = document.querySelector("#decrementpokemon") 
+prevPokemon.addEventListener("click", function(event){
+  var decrementPokemom = event.target.value
+  console.log(decrementPokemom)
+  getPokemon(decrementPokemom); 
+  getTCG(decrementPokemom);
+  vgc.setAttribute("style", "display: block")
+  });
 
 
 
