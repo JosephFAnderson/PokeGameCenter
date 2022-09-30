@@ -186,7 +186,6 @@ function getTCG(pokeName) {
 var vgc = document.getElementById("vgc");
 
 vgc.addEventListener("click", function(pokemonVGC) {
-  alert("hello");
   fetch("https://pokeapi.co/api/v2/pokemon/" + pokeName) 
     .then(function(response){
       return response.json();

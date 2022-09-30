@@ -4,8 +4,26 @@ header{
 }
 
 #logo {
-    height: 40%;
-    width: 40%;
+    height: 52%;
+    width: 55%;
+    justify-content: end;
+}
+
+.button {
+  background-color: #444040;
+  color: #F7E8E8;
+  border-radius: 10px;
+  border: 4px solid #444040;
+  text-align: center;
+  margin: 9px;
+  box-shadow: 1px 0px 3px 1px #393939;
+}
+
+.button:hover {
+  background-color: #231D1D;
+  border-radius: 10px;
+  border: 4px solid #231D1D;
+  box-shadow: 1px 0px 3px 1px #393939;
 }
 
 #carouselContainer {
