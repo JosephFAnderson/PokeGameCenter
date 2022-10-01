@@ -5,15 +5,21 @@ header {
     /* background-color: #1b98e0; */
 }
 
-#navbar{
-}
-
 body {
   background-color: #B9274C;
 }
 
 main {
     height: 100vh;
+}
+
+ /* VGC info scroll boxes */
+ legend {
+  color:#F1FCED;
+  background-color: #7F7F7F;
+  border: 3px solid #242323;
+  margin: 2%;
+  display: none;
 }
 
 #dropdownMenuButton {
@@ -88,15 +94,6 @@ button:hover {
   align-self: center;
  }
 
- /* VGC info scroll boxes */
-legend {
-  color:#F1FCED;
-  background-color: #7F7F7F;
-  border: 3px solid #242323;
-  margin: 2%;
-  display: none;
-}
-
 .vgcInfoScroll {
     width: 250px;
     height: 250px;
@@ -132,16 +129,19 @@ legend {
     left: 0;
     right: 0;
   }
+
   .autocomplete-items div {
     padding: 10px;
     cursor: pointer;
     background-color: #F1FCED;
     border-bottom: 1px solid #D4D4D4;
   }
+
   .autocomplete-items div:hover {
     /*when hovering an item:*/
     background-color: #F8C30B;
   }
+
   .autocomplete-active {
     /*when navigating through the items using the arrow keys:*/
     background-color: #F8C30B !important;
