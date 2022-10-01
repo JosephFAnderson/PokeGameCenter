@@ -1,7 +1,8 @@
 header {
     width: 100%;
-    height: 50px;
-    background-color: #F8C30B;
+    height: 60px;
+    background-color: #1b98e0;
+    /* background-color: #1b98e0; */
 }
 
 body {
@@ -12,14 +13,18 @@ main {
     height: 100vh;
 }
 
+#dropdownMenuButton {
+  height: 95%;
+}
+
 #favs {
     height: 50px;
 }
 
 #logo {
-    height: 40%;
-    width: 55%;
-    justify-content: end;
+    height: 62px;
+    width: 200px;
+    justify-self: end;
 }
 
 main button, #searchButton {
@@ -136,8 +141,8 @@ legend {
   }
   .autocomplete-active {
     /*when navigating through the items using the arrow keys:*/
-    background-color: #87EDFD !important;
-    color: #F1FCED;
+    background-color: #F8C30B !important;
+    color: #231D1D;
   }
 
   #incrementpokemon{
