@@ -137,7 +137,7 @@ legend {
   }
   .autocomplete-items div:hover {
     /*when hovering an item:*/
-    background-color: #E9E9E9;
+    background-color: #F8C30B;
   }
   .autocomplete-active {
     /*when navigating through the items using the arrow keys:*/
