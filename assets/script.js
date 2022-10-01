@@ -306,6 +306,12 @@ function searchPoke(event){
     event.preventDefault();
     var initialSearch = document.getElementById("searcher");
     pokeName = initialSearch.value.toLowerCase();
+    pokeName = (pokeName.replace(". ","-"));
+    pokeName = (pokeName.replace(" ", "-"));
+    pokeName = (pokeName.replace("’", ""));
+    pokeName = (pokeName.replace("♀", "-f"));
+    pokeName = (pokeName.replace("♂", "-m"));
+    pokeName = (pokeName.replace(":", ""));
     initialSearch.value = "";
     getPokemon(pokeName);
     getTCG(pokeName);
