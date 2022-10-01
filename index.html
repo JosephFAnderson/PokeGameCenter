@@ -6,13 +6,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
   <link rel="stylesheet" href="./assets/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
+  <!-- <link rel="stylesheet" href="./assets/style.css"> -->
   <title>PokéGame Center</title>
 </head>
 
-<body class="bg-danger">
-    <header class="row w-100 m-0 d-flex justify-content-between bg-primary">
+<body>
+    <header class="row w-100 m-0 d-flex justify-content-between">
       <div class="dropdown">
         <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
           aria-haspopup="true" aria-expanded="false">
@@ -21,7 +22,7 @@
         <div class="dropdown-menu" id="dropdownMenu" aria-labelledby="dropdownMenuButton">
         </div>
       </div>       
-      <nav class="col-4">            
+      <nav>            
         <form autocomplete="off">
           <div class="autocomplete">
             <input id ="searcher" type="text" placeholder="Search a Pokemon" value= "">
@@ -30,29 +31,28 @@
         </form>     
       </nav>
       <div class="col-4">
-          <img src="/assets/weblogo.png" id="logo" alt="PokeGame Room logo in pokemon font on a blue GameBoy Advance" />
+          <img src="../assets/weblogo.png" id="logo" alt="PokeGame Room logo in pokemon font on a blue GameBoy Advance" />
       </div>
     </header>
     <main class="d-flex ">
       <section id="console">
           <!-- pokemon search basic info here (sprite, para, buttons) -->
-          
           <button id="vgc" class="button">Video Game Info</button>
           <legend>Game Appearances</legend>
-          <ul id="catchEmIn" class="pokemonGoToThePolls"></ul>
+          <ul id="catchEmIn" class="vgcInfoScroll"></ul>
           <legend>Move Capabilities</legend>
-          <ul id="gameMoves" class="pokemonGoToThePolls"></ul>
+          <ul id="gameMoves" class="vgcInfoScroll"></ul>
           <!-- card images in a fresh section -->
    
       </section>
   <!-- Pokedex Section -->
-      <section id = "pokedex" class="bg-secondary rounded d-flex flex-column">
-        <button id="catchPoke">Catch This Pokemon</button>
+      <section id = "pokedex" class="rounded d-flex flex-column">
+        <button id="catchPoke"><img src="/assets/tinyball.png" /> Catch This Pokemon <img src="/assets/tinyball.png" /></button>
         <div class="text-center">
           <img id="pokeImg" class="" src=""/>
         </div>
         <div id = "pokedexctn" class="p-2">
-          <h2 class="text-white w-100 text-center" id="pokename">Search a Pokemon above to unlock the power that's inside</h2>
+          <h2 class="text-white w-100 text-center" id="pokename">Search a Pokemon above to unlock the power that's inside!</h2>
           <p class="text-white" id="pokeentry"></p>
           <p class="text-white" id="height"></p>
           <p class="text-white" id="weight"></p>
