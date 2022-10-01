@@ -435,10 +435,3 @@ if(favoritedArray.length > 0){
   getTCG(pokeName);
   vgc.setAttribute("style", "display: block")
 }
-
-fetch("https://api.pokemontcg.io/v2/cards")
-	    .then(function (response) {
-            return response.json()
-        } )
-	    .then(function (data) {
-        console.log(data)      });
