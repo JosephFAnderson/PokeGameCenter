@@ -46,7 +46,7 @@ var pokeString = "Bulbasaur,Ivysaur,Venusaur,Charmander,Charmeleon,Charizard,Squ
 + "Marshadow,Poipole,Naganadel,Stakataka,Blacephalon,Zeraora,Meltan,Melmetal,Grookey,Thwackey,Rillaboom,Scorbunny,Raboot,Cinderace,Sobble,Drizzile,Inteleon,Skwovet,Greedent,"
 + "Rookidee,Corvisquire,Corviknight,Blipbug,Dottler,Orbeetle,Nickit,Thievul,Gossifleur,Eldegoss,Wooloo,Dubwool,Chewtle,Drednaw,Yamper,Boltund,Rolycoly,Carkol,Coalossal,Applin,"
 + "Flapple,Appletun,Silicobra,Sandaconda,Cramorant,Arrokuda,Barraskewda,Toxel,Sizzlipede,Centiskorch,Clobbopus,Grapploct,Sinistea,Polteageist,Hatenna,Hattrem,"
-+ "Hatterene,Impidimp,Morgrem,Grimmsnarl,Obstagoon,Perrserker,Cursola,Sirfetch'd,Mr. Rime,Runerigus,Milcery,Alcremie,Falinks,Pincurchin,Snom,Frosmoth,Stonjourner,"
++ "Hatterene,Impidimp,Morgrem,Grimmsnarl,Obstagoon,Perrserker,Cursola,Sirfetch’d,Mr. Rime,Runerigus,Milcery,Alcremie,Falinks,Pincurchin,Snom,Frosmoth,Stonjourner,"
 + "Cufant,Copperajah,Dracozolt,Arctozolt,Dracovish,Arctovish,Duraludon,Dreepy,Drakloak,Dragapult,Zacian,Zamazenta,Eternatus,Kubfu,Zarude,Regieleki,"
 + "Regidrago,Glastrier,Spectrier,Calyrex"
 
@@ -312,6 +312,7 @@ function searchPoke(event){
     pokeName = (pokeName.replace("♀", "-f"));
     pokeName = (pokeName.replace("♂", "-m"));
     pokeName = (pokeName.replace(":", ""));
+    pokeName = (pokeName.replace("'", ""));
     initialSearch.value = "";
     getPokemon(pokeName);
     getTCG(pokeName);
