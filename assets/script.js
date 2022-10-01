@@ -93,6 +93,7 @@ var getPokemon = function(pokeName) {
       return response.json();
   })
     .then(function (data) {
+      console.log(data)
       versions = data.game_indices;
       moveKit = data.moves;
       pokeID = data.id;
@@ -306,13 +307,7 @@ function searchPoke(event){
     event.preventDefault();
     var initialSearch = document.getElementById("searcher");
     pokeName = initialSearch.value.toLowerCase();
-    pokeName = (pokeName.replace(". ","-"));
-    pokeName = (pokeName.replace(" ", "-"));
-    pokeName = (pokeName.replace("’", ""));
-    pokeName = (pokeName.replace("♀", "-f"));
-    pokeName = (pokeName.replace("♂", "-m"));
-    pokeName = (pokeName.replace(":", ""));
-    pokeName = (pokeName.replace("'", ""));
+    pokeName = (pokeName.replace(". ","-").replace(" ", "-").replace("’", "").replace("♀", "-f").replace("♂", "-m").replace(":", "").replace("'", ""));
     initialSearch.value = "";
     getPokemon(pokeName);
     getTCG(pokeName);
