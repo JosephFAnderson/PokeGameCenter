@@ -36,5 +36,5 @@ Autocomplete code was obtained from W3Schools
 https://www.w3schools.com/howto/howto_js_autocomplete.asp
 ## License
 
-Please refer to the LICENSE in the repository.
+N/A
 
