@@ -15,7 +15,7 @@ In the search bar, type in a pokemon to view thier trading card and video game d
 Joseph Anderson
 https://github.com/JosephFAnderson
 
-Robin Allmond
+Robin Allman
 https://github.com/cod3burrito
 
 Chistopher Tavares
