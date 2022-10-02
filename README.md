@@ -4,7 +4,7 @@
 ## Description
 Catch your favorite pokemon! The PokeGameCenter provides a central location for Pokemon video and trading card games information.
 
-<img src="">
+<img src="assets\Screenshot 2022-10-02 142301.png">
 
 
 ## Usage
